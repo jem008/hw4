@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
     if @user
       if BCrypt::Password.new(@user.password) == entered_password
         redirect_to "/places"
+      else
+        redirect_to "/sessions/new"
+      end
     else
       redirect_to "/sessions/new"
     end
